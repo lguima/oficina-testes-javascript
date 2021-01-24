@@ -1,6 +1,36 @@
 const fizzbuzz = require('./fizzbuzz')
 
 describe('Fizzbuzz Puzzle', () => {
+  it('Should throw a TypeError if the parameter is string', () => {
+    expect(() => {
+      fizzbuzz("Lorem ipsum.");
+    }).toThrow(TypeError);
+  });
+
+  it('Should throw a TypeError if the parameter is array', () => {
+    expect(() => {
+      fizzbuzz([1, 2, 3]);
+    }).toThrow(TypeError);
+  });
+
+  it('Should throw a TypeError if the parameter is object', () => {
+    expect(() => {
+      fizzbuzz({ foo: 'bar' });
+    }).toThrow(TypeError);
+  });
+
+  it('Should throw a TypeError if the parameter is boolean', () => {
+    expect(() => {
+      fizzbuzz(true);
+    }).toThrow(TypeError);
+  });
+
+  it('Should throw a TypeError if the parameter is undefined', () => {
+    expect(() => {
+      fizzbuzz(undefined);
+    }).toThrow(TypeError);
+  });
+
   it('Should return the number 0 when it is passed the number 0', () => {
     const result = fizzbuzz(0)
     expect(result).toEqual(0)
